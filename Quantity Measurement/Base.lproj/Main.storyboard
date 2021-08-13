@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Quantity_Measurement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="pc9-X3-fVw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHz-qc-7x1" userLabel="topView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="268.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-DK-dHv">
+                                                <rect key="frame" x="107" y="109.5" width="200" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="XHz-UH-ZMi"/>
+                                                    <constraint firstAttribute="height" constant="50" id="XSY-rz-McZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="enterNumberAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="QMr-1U-WdD"/>
+                                                    <action selector="textFiledNoEmpty:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="pkr-RP-gXb"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2jN-DK-dHv" firstAttribute="centerY" secondItem="SHz-qc-7x1" secondAttribute="centerY" id="TAx-Yy-Jig"/>
+                                            <constraint firstItem="2jN-DK-dHv" firstAttribute="centerX" secondItem="SHz-qc-7x1" secondAttribute="centerX" id="hyz-n7-brL"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thy-d6-ZBT" userLabel="middleView">
+                                        <rect key="frame" x="0.0" y="274.5" width="414" height="269"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YA-sA-mKE">
+                                                <rect key="frame" x="32" y="5" width="350" height="259"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="350" id="pwh-T2-B3c"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0YA-sA-mKE" firstAttribute="centerX" secondItem="thy-d6-ZBT" secondAttribute="centerX" id="Dsj-ny-yLz"/>
+                                            <constraint firstItem="0YA-sA-mKE" firstAttribute="top" secondItem="thy-d6-ZBT" secondAttribute="top" constant="5" id="F15-Wr-m2y"/>
+                                            <constraint firstItem="0YA-sA-mKE" firstAttribute="centerY" secondItem="thy-d6-ZBT" secondAttribute="centerY" id="XpE-sG-i9b"/>
+                                            <constraint firstAttribute="bottom" secondItem="0YA-sA-mKE" secondAttribute="bottom" constant="5" id="dpJ-5C-kJh"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDa-z7-EWj" userLabel="bottumView">
+                                        <rect key="frame" x="0.0" y="549.5" width="414" height="268.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCA-Lp-eEW">
+                                                <rect key="frame" x="107" y="109" width="200" height="50"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="EkX-CT-TWM"/>
+                                                    <constraint firstAttribute="width" constant="200" id="y18-fq-0Kq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lCA-Lp-eEW" firstAttribute="centerY" secondItem="iDa-z7-EWj" secondAttribute="centerY" id="EUs-se-zr9"/>
+                                            <constraint firstItem="lCA-Lp-eEW" firstAttribute="centerX" secondItem="iDa-z7-EWj" secondAttribute="centerX" id="xlg-d3-sy9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="pc9-X3-fVw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pdg-C3-6vg"/>
+                            <constraint firstItem="pc9-X3-fVw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WEs-R6-hYg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pc9-X3-fVw" secondAttribute="bottom" id="mve-vk-8aQ"/>
+                            <constraint firstItem="pc9-X3-fVw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uin-c4-2bu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chooseConversionPicker" destination="0YA-sA-mKE" id="GBv-oB-fIe"/>
+                        <outlet property="convertedResultLabel" destination="lCA-Lp-eEW" id="eMX-PF-ZLH"/>
+                        <outlet property="enterNumberTextField" destination="2jN-DK-dHv" id="MWz-hh-rlb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="75.669642857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
